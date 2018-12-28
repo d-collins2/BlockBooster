@@ -15,9 +15,9 @@
       <nav class="navbar navbar-light bg-light d-flex">
         <div class="container">
           <div class="logo">
-            <a class="navbar-brand" href='<%= home_index_path %>'>
-              <%= fa_stacked_icon "glass inverse", base: "square"%>
-              DRYFT NYC
+            <a class="navbar-brand" href='<%= movies_path %>'>
+              <%= fa_stacked_icon "bold inverse", base: "square"%>
+              BLOCKBOOSTER
             </a>
           </div>
           <div class="m-auto">
@@ -26,9 +26,8 @@
             </form>
           </div>
           <div class="user-section">
-            <a><i class="fa fa-map-marker"></i></a>
-            <a><i class="fa fa-car"></i></a>
-            <a><i class="fa fa-heart"></i></a>
+            <a href=""><i class="fa fa-map-marker"></i></a>
+            <a href=""><i class="fa fa-ticket"></i></a>
             <% if user_signed_in? %>
              <a href='<%= users_path %>'>
               <i class='fa fa-user-circle'></i>
@@ -50,7 +49,7 @@
       <!--Footer-->
       <footer class="container footer">
         <nav class="navbar d-flex">
-          <p> © 2018 DRYFT NYC </p>
+          <p> © 2018 BLOCKBOOSTER </p>
         </nav>
       </footer>
     </body>

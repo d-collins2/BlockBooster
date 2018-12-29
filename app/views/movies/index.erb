@@ -1,11 +1,13 @@
+<% if user_signed_in? %>
+  Welcome! <strong><%= current_user.email %></strong>.
+<% end %>
+
 <div class="text-center">
   <h1><u>Now Playing</u></h1>
-</div>
 
-<ul>
   <% @movies.each do |movie| %>
-    <li>
-        <h3><u><%=link_to movie.name, movie_path(movie) %></u></h3>  Released: <%= movie.release_date%><br>
-    </li>
+    <br>
+      <%= image_tag 'https://image.tmdb.org/t/p/w500' + movie.image %><br>
+      <h3><u><%=link_to movie.name, movie_path(movie) %></u></h3>  Released: <%= movie.release_date%><br>
   <% end  %>
-</ul>
+</div>

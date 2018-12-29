@@ -26,23 +26,24 @@
             </form>
           </div>
           <div class="user-section">
+            <% if user_signed_in? %>
             <a href=""><i class="fa fa-map-marker"></i></a>
             <a href=""><i class="fa fa-ticket"></i></a>
-            <% if user_signed_in? %>
-             <a href='<%= users_path %>'>
-              <i class='fa fa-user-circle'></i>
-             </a>
-            <% else %>
-              <a href='<%= new_user_session_path%>'>
-                <i class="fa fa-sign-in"></i>
-              </a>
-            <% end %>
+            <p class="navbar-text pull-right">
+                <%= link_to 'Edit profile', edit_user_registration_path%> |
+                <%= link_to "Logout", destroy_user_session_path %>
+              <% else %>
+                <%= link_to "Sign up", new_user_registration_path%> |
+                <%= link_to "Login", new_user_session_path%>
+              <% end %>
+            </p>
           </div>
         </div>
       </nav>
 
       <!--Main content-->
       <main class="container" style="min-height: 500px;">
+
         <%= yield %>
       </main>
 

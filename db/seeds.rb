@@ -10,13 +10,13 @@ end
 def movie_names
   hash = movies_hash
   hash['results'].map do |movie|
-    {"name" => movie['title'], "release_date" => movie['release_date'], "overview" => movie['overview']}
+    {"name" => movie['title'], "release_date" => movie['release_date'], "overview" => movie['overview'], 'image' => movie['poster_path'], 'image2' => movie['backdrop_path']}
   end
 end
 
 def create_movie
   movie_names.each do |movie|
-      Movie.create(name: movie['name'], release_date: movie['release_date'], overview: movie['overview'])
+      Movie.create(name: movie['name'], release_date: movie['release_date'], overview: movie['overview'], image: movie['image'], image2: movie['image2'])
   end
 end
 

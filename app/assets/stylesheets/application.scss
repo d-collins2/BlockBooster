@@ -38,3 +38,20 @@
     color: #999;
   }
 }
+
+.card {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.flex-container {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}

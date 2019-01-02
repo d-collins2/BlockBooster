@@ -1,7 +1,19 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.content1 {
-    display: flex;
-    flex-wrap: nowrap;
+.card {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.flex-container {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }

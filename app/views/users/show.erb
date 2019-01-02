@@ -1,0 +1,3 @@
+<%@user.tickets.each do |ticket| %>
+  <%= ticket.movie.name if current_user %>
+<% end %>

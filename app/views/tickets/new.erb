@@ -1,7 +1,11 @@
-<%= form_for @ticket do |f| %>
-
-
-  <%= f.text_field :user_name %>
-  <%= f.text_field :movie_name %>
-
-<% end %>
+<div class="text-center">
+  <h1>Movies Available</h1>
+  <br>
+  <%= form_for @ticket do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.label "Movie:" %>
+  <%= f.collection_select :movie_id, @movies, :id, :name, :prompt => true  %>
+  <br>
+  <%= f.submit "Book A Ticket" %>
+  <% end %>
+</div>

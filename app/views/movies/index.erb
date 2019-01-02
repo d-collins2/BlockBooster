@@ -1,13 +1,21 @@
-<% if user_signed_in? %>
-  Welcome! <strong><%= current_user.email %></strong>.
-<% end %>
+<div class="text-center">
+
+    <% if user_signed_in? %>
+      Welcome! <strong><%= current_user.email %></strong>.
+    <% end %><br>
+    <a href="/tickets/new">Add a Ticket</a>
+</div>
+
 
 <div class="text-center">
   <h1><u>Now Playing</u></h1>
+</div>
 
+<div class="flex-container">
   <% @movies.each do |movie| %>
-    <br>
-      <%= image_tag 'https://image.tmdb.org/t/p/w500' + movie.image %><br>
-      <h3><u><%=link_to movie.name, movie_path(movie) %></u></h3>  Released: <%= movie.release_date%><br>
+  <div class="card">
+      <a href="/movies/<%= movie.id %>"><%= image_tag 'https://image.tmdb.org/t/p/w500' + movie.image%><br></a>
+      <span><%= movie.name %></span>
+  </div>
   <% end  %>
 </div>

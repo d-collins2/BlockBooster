@@ -34,7 +34,6 @@
           <div class="user-section">
             <% if user_signed_in? %>
               <p class="navbar-text pull-right">
-              <a href="<%= new_ticket_path %>"><i class="fa fa-plus"></i></a>
               <a href="<%= user_path(current_user) %>"><i class="fa fa-star"></i></a>
               <a href="<%= tickets_path %>"><i class="fa fa-ticket"></i></a>
               <a href="<%= edit_user_registration_path %>"><i class="fa fa-pencil-square-o"></i></a>
@@ -48,14 +47,20 @@
         </div>
       </nav>
       <!--Main content-->
+      <% if user_signed_in? %>
       <main class="container" style="min-height: 500px;">
+      <% else %>
+      <main class="container2" style="min-height: 500px;">
+      <% end %>
         <%= yield %>
       </main>
       <!-- Footer-->
+      <% if user_signed_in? %>
       <footer class="container footer">
         <nav class="navbar d-flex">
           <p><strong> © 2018 BLOCKBOOSTER </strong></p>
         </nav>
       </footer>
+      <% end %>
     </body>
 </html>

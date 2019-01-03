@@ -1,7 +1,15 @@
+<br>
 <div class="flex-container">
-  <% @user.tickets.each do |ticket| %>
-  <div class="card">
-    <a href="/movies/<%= ticket.movie.id %>"><%= (image_tag 'https://image.tmdb.org/t/p/w500' + ticket.movie.image) unless ticket.movie.image.nil?%><br></a>
-  </div>
+  <% @favorite_movies.each do |movie| %>
+    <div class="card">
+      <span class="cont_font">
+        <% if Date.parse(movie.release_date) == Date.today %>
+          <span class="open"><%= "Opening Day" %></span>
+        <% else %>
+          <%= movie.release_date[5..-1] + "-" + movie.release_date[2...4] %>
+        <% end %>
+      </span>
+      <a href="/movies/<%= movie.id %>"><%= (image_tag 'https://image.tmdb.org/t/p/w500' + movie.image) unless movie.image.nil?%><br></a>
+    </div>
   <% end  %>
 </div>

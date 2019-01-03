@@ -24,14 +24,14 @@ end
 
 def create_movie(hash)
   hash.each do |movie|
-      m = Movie.new(name: movie['name'], release_date: movie['release_date'], overview: movie['overview'], image: movie['image'], image2: movie['image2'])
-      m.save unless m.image.nil? || m.overview.nil? || m.image2.nil?
+    m = Movie.new(name: movie['name'], release_date: movie['release_date'], overview: movie['overview'], image: movie['image'], image2: movie['image2'])
+    m.save unless m.image.nil? || m.image2.nil?|| m.overview.nil?
   end
 end
 
 
 def run
-  num = (1..50)
+  num = (1..40)
   num.each do |n|
     hash = movies_hash(n)
     upcoming = upcoming_hash(n)
@@ -43,5 +43,6 @@ def run
     puts n
   end
 end
+
 run
 puts "end"

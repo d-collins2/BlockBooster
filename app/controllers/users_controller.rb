@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :favorite_movies, only: [:show]
   def new
 
   end

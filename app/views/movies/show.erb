@@ -1,8 +1,10 @@
-<br>
-<h1><strong><u><%= @movie.name %></u></strong></h1>
-<div class="flex-container"
-  <div class="card">
-    <h5><strong><%= @movie.overview unless @movie.overview.nil? %></strong></h5>
-      <%= (image_tag 'https://image.tmdb.org/t/p/w500' + @movie.image2) unless @movie.image2.nil? %>
-  </div>
+<br><h1><strong><u><%= @movie.name %></u></strong></h1><br>
+
+<h5><strong><%= @movie.overview unless @movie.overview.nil? %></strong></h5><br>
+<div class="img-re">
+  <%= (image_tag 'https://image.tmdb.org/t/p/w500' + @movie.image2) unless @movie.image2.nil? %>
+</div>
+
+<div class="text-center">
+  <%= button_to "Add To Favorites", add_movie_to_favorite_path, method: :patch, params: { movie_id: @movie.id}  %>
 </div>

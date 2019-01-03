@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     end
   end
   root 'movies#index'
-
+  patch '/favorite', to: "favorite#update", as: :add_movie_to_favorite
 end

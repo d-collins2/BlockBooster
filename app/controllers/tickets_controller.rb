@@ -18,8 +18,13 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.create(movie_params)
-    redirect_to @ticket
+      @ticket = Ticket.new(movie_params)
+      if @ticket.valid?
+      @ticket.save
+      redirect_to @ticket
+    else
+      redirect_to new_ticket_path
+    end
   end
 
   def movie_params

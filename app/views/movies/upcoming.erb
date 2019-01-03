@@ -4,23 +4,16 @@
     <% end %>
 </div>
 
-
 <div class="text-center">
-  <h1><strong><%= link_to "Now Playing", movies_path, class: "a-primary" %> | <%= link_to "Upcoming", upcoming_movies_path, class: "a-primary" %></strong></h1>
+  <h1><strong><%= link_to "Now Playing", movies_path, class: "a-primary" %> | <%= link_to "Upcoming", movies_path, class: "a-primary" %></strong></h1>
 </div><br>
 
 <div class="flex-container">
-  <% @movies.each do |movie| %>
+  <% @upcoming.each do |movie| %>
   <div class="card">
-    <span class="cont_font">
-      <% if Date.parse(movie.release_date) == Date.today %>
-      <%= "Opening Day" %>
-      <% else %>
-      <%= movie.release_date[5..-1] + "-" + movie.release_date[2...4] %>
-      <% end %>
-    </span>
+    <span class="cont_font"><%= movie.release_date[5..-1] + "-" + movie.release_date[2...4] %></span>
     <a href="/movies/<%= movie.id %>"><%= (image_tag 'https://image.tmdb.org/t/p/w500' + movie.image) unless movie.image.nil?%><br></a>
     <span class="cont_font"><%= movie.name  %></span>
   </div>
-  <% end %>
+  <% end  %>
 </div>

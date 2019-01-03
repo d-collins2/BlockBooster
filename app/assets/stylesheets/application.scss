@@ -5,9 +5,11 @@
 .container{
   max-width: 1000px;
 }
+
 .navbar{
   border-bottom: 1px solid rgba(0,0,0,.0975);
 }
+
 .user-section{
   a{
     padding-left: 15px;
@@ -17,12 +19,15 @@
     color: #000000d4;
   }
 }
+
 .search-form{
   input{
-    font-size: 13px;
+    font-size: 15px;
     text-align: center;
+    margin-bottom: 0rem;
   }
 }
+
 .footer{
   font-size: 12px;
   padding-top: 30px;
@@ -34,24 +39,42 @@
       color: #003569;
     }
   }
-  p{
-    color: #999;
-  }
+}
+
+p{
+  color: #999;
+  margin-bottom: 0rem;
 }
 
 .card {
   width: 30%;
-  margin: auto;
+  margin: .3rem;
   text-align: center;
 }
 
 img {
   width: 100%;
+  height: 60%;
 }
 
 .flex-container {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: flex-start;
+}
+
+dom_font{
+  font-family: 'Domine', serif;
+}
+
+.a-primary {
+  color: black;
+}
+
+.cont_font {
+  font-weight: bolder;
+  font-size: larger;
+  font-variant: diagonal-fractions;
 }

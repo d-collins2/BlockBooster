@@ -1,11 +1,8 @@
 <br>
-<div class="text-center">
-  <h1><u><%= @movie.name %></u></h1>
-  <br>
-    <%= image_tag 'https://image.tmdb.org/t/p/w500' + @movie.image2 %>
-  <br>
+<h1><strong><u><%= @movie.name %></u></strong></h1>
+<div class="flex-container"
+  <div class="card">
+    <h5><strong><%= @movie.overview unless @movie.overview.nil? %></strong></h5>
+      <%= (image_tag 'https://image.tmdb.org/t/p/w500' + @movie.image2) unless @movie.image2.nil? %>
+  </div>
 </div>
-<br>
-<p><%= @movie.overview %></p>
-
-<%= link_to "Save", new_ticket_path  %>

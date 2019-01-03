@@ -1,11 +1,11 @@
 <div class="text-center">
-  <h1>Movies Available</h1>
+  <h1><strong>Movies Available</strong></h1>
   <br>
   <%= form_for @ticket do |f| %>
   <%= f.hidden_field :user_id %>
-  <%= f.label "Movie:" %>
-  <%= f.collection_select :movie_id, @movies, :id, :name, :prompt => true  %>
+  <b><%= f.label "Movie:" %></b>
+  <%= f.collection_select :movie_id, @movies.order('name'), :id, :name, :prompt => true  %>
   <br>
-  <%= f.submit "Book A Ticket" %>
+  <%= f.submit "submit" %>
   <% end %>
 </div>

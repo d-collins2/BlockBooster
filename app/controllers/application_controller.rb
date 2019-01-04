@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def favorite_movies
-    @favorite_movies = Ticket.all.sort_by { ticket | ticket.movie.name }
+    @favorite_movies = Ticket.all.sort_by { |ticket| ticket.movie.name }
   end
 
   def delete_favorites(ticket)

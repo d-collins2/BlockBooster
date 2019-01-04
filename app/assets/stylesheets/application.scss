@@ -3,7 +3,7 @@
 @import "users";
 
 .container {
-  max-width: 75%;
+  max-width: 65%;
   /* unvisited link */
   a:link {
     color: black;
@@ -134,4 +134,9 @@ body {
 
 .open {
   color: #f4a09c;
+}
+
+span {
+  color: black;
+  font-weight: bolder;
 }

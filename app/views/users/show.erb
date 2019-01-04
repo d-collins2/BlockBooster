@@ -1,4 +1,12 @@
 <br>
+<div class="text-center">
+  <h2>
+    <strong>
+      <u>Favorite Movies</u>
+    </strong>
+  </h2>
+</div>
+<br>
 <div class="flex-container">
   <% @favorite_movies.each do |ticket| %>
     <div class="card">
@@ -10,7 +18,7 @@
         <% end %>
       </span>
       <a href="/movies/<%= ticket.movie.id %>"><%= (image_tag 'https://image.tmdb.org/t/p/w500' + ticket.movie.image) unless ticket.movie.image.nil?%><br></a>
-      <%= link_to "destroy", ticket_path(ticket)%>
+      <button type="button" class="btn btn-default"><%= button_to "Delete", ticket_path(ticket), method: :delete %></button>
     </div>
   <% end  %>
 </div>

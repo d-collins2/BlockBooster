@@ -15,4 +15,13 @@ class TicketsController < ApplicationController
     redirect_to movies_path
   end
 
+  def show
+    @ticket = Ticket.find(params[:id])
+  end
+
+  def destroy
+    @ticket = Ticket.find(params[:id])
+    @ticket.delete
+    redirect_to movies_path
+  end
 end

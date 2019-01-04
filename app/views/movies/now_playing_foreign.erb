@@ -1,23 +1,9 @@
 <div class="text-right">
-  <h6>
-    <strong>
-      <%= link_to "Now Playing", movies_path, class: "a-primary" %>
-      |
-      <%= link_to "Foreign", now_playing_foreign_movies_path, class: "a-primary" %>
-      |
-      <%= link_to "Upcoming", upcoming_movies_path, class: "a-primary" %>
-      |
-      <%= link_to "Foreign Upcoming", upcoming_foreign_movies_path, class: "a-primary" %>
-    </strong>
-  </h6>
-</div>
-
-<div class="text-right">
   <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
-  <% if user_signed_in? %>
-    <h5>
+  <% if user_signed_in? %><br>
+    <h5><br>
       <strong>
         <%= Date.today.strftime("%A, %m-%d-%y") %>
       </strong>
@@ -30,7 +16,15 @@
   <% end %>
 </div>
 
-
+<div class="text-right">
+  <h2>
+    <strong>
+      <%= link_to "Foreign Upcoming", upcoming_foreign_movies_path, class: "a-primary" %>
+      |
+      <%= link_to "Now Playing", movies_path, class: "a-primary" %>
+    </strong>
+  </h2>
+</div><br>
 
 <div class="flex-container">
   <% @movies.each do |movie| %>

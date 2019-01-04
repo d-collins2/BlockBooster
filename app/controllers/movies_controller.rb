@@ -15,6 +15,14 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def now_playing_foreign
+    @movies = Movie.now_playing_foreign.sort_by(&:release_date).reverse
+  end
+
+  def upcoming_foreign
+    @upcoming = Movie.for_upcoming.sort_by(&:release_date)
+  end
+
   private
 
   def movie_params

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+concern :searchable do
+  collection do
+    get :search
+  end
+end
+
   devise_for :users
   resources :users do
     collection do
@@ -8,7 +14,7 @@ Rails.application.routes.draw do
   resources :tickets
   resources :movies do
     collection do
-      get :upcoming
+      get :upcoming, :now_playing_foreign, :upcoming_foreign
     end
   end
   root 'movies#index'

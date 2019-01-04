@@ -3,16 +3,27 @@
     <p><%= flash[:notice] %></p>
   <% end %>
   <% if user_signed_in? %><br>
-    <h5><strong>
-    <%= Date.today.strftime("%A, %m-%m-%y") %>
-  </strong></h5>
-  <h4><strong>Welcome! <%= current_user.email.split("@").first.capitalize %></strong></h4>
+    <h5><br>
+      <strong>
+        <%= Date.today.strftime("%A, %m-%d-%y") %>
+      </strong>
+    </h5>
+    <h4>
+      <strong>
+        Welcome! <%= current_user.email.split("@").first.capitalize %>
+      </strong>
+    </h4>
   <% end %>
 </div>
 
-
 <div class="text-right">
-  <h1><strong><%= link_to "Now Playing", movies_path, class: "a-primary" %> | <%= link_to "Upcoming", upcoming_movies_path, class: "a-primary" %></strong></h1>
+  <h1>
+    <strong>
+      <%= link_to "Now Playing", movies_path, class: "a-primary" %>
+      |
+      <%= link_to "Upcoming", upcoming_movies_path, class: "a-primary" %>
+    </strong>
+  </h1>
 </div><br>
 
 <div class="flex-container">
@@ -25,9 +36,8 @@
           <%= movie.release_date[5..-1] + "-" + movie.release_date[2...4] %>
         <% end %>
       </span>
-        <a href="/movies/<%= movie.id %>"><%= (image_tag 'https://image.tmdb.org/t/p/w500' + movie.image) unless movie.image.nil?%><br></a>
-      <span class="cont_font"><%= movie.name  %></span>
-
+      <a href="/movies/<%= movie.id %>"><%= (image_tag 'https://image.tmdb.org/t/p/w500' + movie.image) unless movie.image.nil?%><br></a>
+      <span class="cont_font"><%= movie.name %></span>
     </div>
   <% end %>
 </div>

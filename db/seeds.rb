@@ -16,22 +16,38 @@ def upcoming_hash(num)
   JSON.parse(response_string)
 end
 
+def top_rated_hash(num)
+  url = 'https://api.themoviedb.org/3/movie/top_rated?api_key=ea3605e61973db40253bbfaf6098e2b4&language=en-US&page='
+  url += num.to_s
+  response_string = RestClient.get(url)
+  JSON.parse(response_string)
+end
+
 def movie_names(hash)
   hash['results'].map do |movie|
-    {"name" => movie['title'], "release_date" => movie['release_date'], "overview" => movie['overview'], 'image' => movie['poster_path'], 'image2' => movie['backdrop_path'], 'id' => movie['id']}
+    {
+      'name' => movie['title'],
+      'release_date' => movie['release_date'],
+      'overview' => movie['overview'],
+      'image' => movie['poster_path'],
+      'image2' => movie['backdrop_path'],
+      'id' => movie['id'],
+      'language' => movie['original_language']
+    }
   end
 end
 
 def create_movie(hash)
   hash.each do |movie|
-    m = Movie.new(name: movie['name'], release_date: movie['release_date'], overview: movie['overview'], image: movie['image'], image2: movie['image2'])
-    m.save unless m.image.nil? || m.image2.nil?|| m.overview.nil?
+    m = Movie.find_or_initialize_by(name: movie['name'], release_date: movie['release_date'], overview: movie['overview'], image: movie['image'], image2: movie['image2'], language: movie['language'])
+    if m.language == "en"
+      m.save unless m.image.nil? || m.image2.nil? || m.overview.nil?
+    end
   end
 end
 
-
 def run
-  num = (1..40)
+  num = (91..100)
   num.each do |n|
     hash = movies_hash(n)
     upcoming = upcoming_hash(n)
@@ -45,4 +61,4 @@ def run
 end
 
 run
-puts "end"
+puts 'end'

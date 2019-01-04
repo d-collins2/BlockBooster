@@ -1,12 +1,13 @@
-<meta name=”viewport” content=”width=device-width, initial-scale=1">
+<meta name="”viewport”" content="”width=device-width," initial-scale="1"">
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DRYFT</title>
+    <title>© 2018 BLOCK-BOOSTER</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <!----Font---->
     <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
     <style>
       body {
@@ -16,51 +17,66 @@
     </style>
   </head>
 
-    <body>
-      <!--Navigation Bar-->
-      <nav class="navbar navbar-light bg-light d-flex">
-        <div class="container">
-          <div class="logo">
-            <a class="navbar-brand" href="<%= movies_path %>">
-              <%= fa_stacked_icon "bold inverse", base: "square"%>
-              <strong>BLOCKBOOSTER</strong>
-            </a>
-          </div>
-          <div class="m-auto">
-            <form class="form-inline search-form">
-              <input class="form-control mr-sm-2" type="search" placeholder="@search" aria-label="Search">
-            </form>
-          </div>
-          <div class="user-section">
-            <% if user_signed_in? %>
-              <p class="navbar-text pull-right">
-              <a href="<%= user_path(current_user) %>"><i class="fa fa-star"></i></a>
-              <a href="<%= tickets_path %>"><i class="fa fa-ticket"></i></a>
-              <a href="<%= edit_user_registration_path %>"><i class="fa fa-pencil-square-o"></i></a>
-              <a href="<%= destroy_user_session_path %>"><i class="fa fa-power-off"></i></a>
-            <% else %>
-              <b><%= link_to "Sign up", new_user_registration_path%></b> |
-              <b><%= link_to "Login", new_user_session_path%></b>
-            <% end %>
-            </p>
-          </div>
+  <body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-light bg-light d-flex">
+      <div class="container">
+        <div class="logo">
+          <a class="navbar-brand" href="<%= movies_path %>">
+            <%= fa_stacked_icon "bold inverse", base: "square"%>
+            <strong>BLOCK BOOSTER</strong>
+          </a>
         </div>
-      </nav>
-      <!--Main content-->
-      <% if user_signed_in? %>
-      <main class="container" style="min-height: 500px;">
-      <% else %>
+          <!--Search Bar-->
+        <div class="m-auto">
+          <form class="form-inline search-form">
+            <%= form_tag(movies_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Search", class: "form-control") %>
+            <button type="submit" class="fa fa-search"></button>
+          <% end %>
+        </form>
+      </div>
+        <!--User NavBar-->
+      <div class="user-section">
+        <% if user_signed_in? %>
+          <p class="navbar-text pull-right">
+            <a href="<%= user_path(current_user) %>">
+              <i class="fa fa-star inverse"></i>
+            </a>
+            <a href="<%= tickets_path %>">
+              <i class="fa fa-ticket"></i>
+            </a>
+            <a href="<%= edit_user_registration_path %>">
+              <i class="fa fa-pencil-square-o"></i>
+            </a>
+            <a href="<%= destroy_user_session_path %>">
+              <i class="fa fa-sign-out"></i>
+            </a>
+          <% else %>
+            <b><%= link_to "Sign up", new_user_registration_path%></b>
+            <b><%= link_to "Login", new_user_session_path%></b>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </nav>
+  <!--Main content-->
+  <% if user_signed_in? %>
+    <main class="container" style="min-height: 500px;">
+    <% else %>
       <main class="container2" style="min-height: 500px;">
       <% end %>
-        <%= yield %>
-      </main>
-      <!-- Footer-->
-      <% if user_signed_in? %>
-      <footer class="container footer">
-        <nav class="navbar d-flex">
-          <p><strong> © 2018 BLOCKBOOSTER </strong></p>
-        </nav>
-      </footer>
-      <% end %>
-    </body>
+      <%= yield %>
+    </main>
+    <!-- Footer-->
+    <footer class="container footer">
+      <nav class="navbar d-flex">
+        <p>
+          <strong>
+            © 2018 BLOCKBOOSTER
+          </strong>
+        </p>
+      </nav>
+    </footer>
+  </body>
 </html>

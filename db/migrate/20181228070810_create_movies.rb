@@ -7,6 +7,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :overview
       t.string :image
       t.string :image2
+      t.string :language
       # t.string :genre
       # t.string :homepage
       # t.string :production_companies

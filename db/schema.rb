@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_12_28_070935) do
     t.string "overview"
     t.string "image"
     t.string "image2"
+    t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

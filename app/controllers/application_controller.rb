@@ -5,10 +5,14 @@ class ApplicationController < ActionController::Base
   end
 
   def add_movie_to_favorite(movie_id)
-    favorites << movie_id
+    Ticket.create(user_id: current_user.id, movie_id: movie_id)
   end
 
   def favorite_movies
-    @favorite_movies = Movie.find(favorites)
+    @favorite_movies = Ticket.all
+  end
+
+  def delete_favorites(ticket)
+    favorite_movies.find(ticket).pop
   end
 end

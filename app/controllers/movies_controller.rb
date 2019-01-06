@@ -8,7 +8,11 @@ class MoviesController < ApplicationController
   end
 
   def upcoming
-    @upcoming = Movie.upcoming.sort_by(&:release_date)
+    @upcoming = if params[:search]
+                  Movie.search(params[:search]).order('name')
+                else
+                  Movie.upcoming.sort_by(&:release_date)
+                end
   end
 
   def show
@@ -16,11 +20,19 @@ class MoviesController < ApplicationController
   end
 
   def now_playing_foreign
-    @movies = Movie.now_playing_foreign.sort_by(&:release_date).reverse
+    @movies = if params[:search]
+                Movie.search(params[:search]).order('name')
+              else
+                Movie.now_playing_foreign.sort_by(&:release_date).reverse
+              end
   end
 
   def upcoming_foreign
-    @upcoming = Movie.for_upcoming.sort_by(&:release_date)
+    @upcoming = if params[:search]
+                  Movie.search(params[:search]).order('name')
+                else
+                  Movie.for_upcoming.sort_by(&:release_date)
+                end
   end
 
   private

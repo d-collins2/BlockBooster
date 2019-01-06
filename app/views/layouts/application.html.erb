@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>© 2018 BLOCK-BOOSTER</title>
+    <title>© 2019 BLOCK-BOOSTER</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -24,18 +24,20 @@
         <div class="logo">
           <a class="navbar-brand a-primary" href="<%= movies_path %>">
             <%= fa_stacked_icon "bold inverse", base: "square"%>
-            <strong>BLOCK BOOSTER</strong>
+            <strong>BLOCK-BOOSTER</strong>
           </a>
         </div>
           <!--Search Bar-->
+        <% if user_signed_in? %>
         <div class="m-auto">
           <form class="form-inline search-form">
             <%= form_tag(movies_path, method: :get) do %>
-            <%= text_field_tag(:search, params[:search], placeholder: "Search", class: "form-control") %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Alphabetical if Blank", class: "form-control") %>
             <button type="submit" class="fa fa-search"></button>
           <% end %>
         </form>
       </div>
+      <% end  %>
         <!--User NavBar-->
       <div class="user-section">
         <% if user_signed_in? %>
@@ -43,9 +45,9 @@
             <a href="<%= user_path(current_user) %>">
               <i class="fa fa-star inverse"></i>
             </a>
-            <a href="<%= tickets_path %>">
+            <!-- <a href="">
               <i class="fa fa-ticket"></i>
-            </a>
+            </a> -->
             <a href="<%= edit_user_registration_path %>">
               <i class="fa fa-pencil-square-o"></i>
             </a>

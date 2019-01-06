@@ -1,8 +1,6 @@
 <div class="text-right">
   <h6>
     <strong>
-      <%= link_to "Now Playing", movies_path, class: "a-primary" %>
-      |
       <%= link_to "Foreign", now_playing_foreign_movies_path, class: "a-primary" %>
       |
       <%= link_to "Upcoming", upcoming_movies_path, class: "a-primary" %>
@@ -24,13 +22,12 @@
     </h5>
     <h4>
       <strong>
-        Welcome! <%= current_user.email.split("@").first.capitalize %>
+        Welcome!
+        <%= current_user.email.split("@").first.capitalize %>
       </strong>
     </h4>
   <% end %>
 </div>
-
-
 
 <div class="flex-container">
   <% @movies.each do |movie| %>

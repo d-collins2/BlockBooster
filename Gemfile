@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
-gem 'devise'
+gem 'devise', ">= 4.6.0"
 gem 'httparty'
 gem 'rest-client'
 gem 'json'

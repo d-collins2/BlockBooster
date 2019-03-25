@@ -47,7 +47,7 @@ def create_movie(hash)
 end
 
 def run
-  num = (91..100)
+  num = (21..30)
   num.each do |n|
     hash = movies_hash(n)
     upcoming = upcoming_hash(n)

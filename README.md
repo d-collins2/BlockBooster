@@ -2,6 +2,8 @@
 
 This Rails app was deisgned to allow users to search for they're favorite and/or upcoming movies and allow them to keep track of those movies. 
 
+Live Demo - Coming Soon!
+
 ## Contents
 
 - [Essential Gems](#essentual-gmes)

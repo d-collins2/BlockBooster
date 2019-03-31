@@ -1,8 +1,8 @@
-# Block Booster
+# Block Booster - [Live Demo](https://www.youtube.com/watch?v=fC4D09zaoDA)
 
 This Rails app was deisgned to allow users to search for they're favorite and/or upcoming movies and allow them to keep track of those movies. 
 
-Live Demo - Coming Soon!
+
 
 ## Contents
 

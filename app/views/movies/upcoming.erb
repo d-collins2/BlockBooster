@@ -1,13 +1,10 @@
 <div class="text-right">
-  <h6>
+  <h5>
     <strong>
       <%= link_to "Now Playing", movies_path, class: "a-primary" %>
-      |
-      <%= link_to "Foreign", now_playing_foreign_movies_path, class: "a-primary" %>
-      |
-      <%= link_to "Foreign Upcoming", upcoming_foreign_movies_path, class: "a-primary" %>
+      
     </strong>
-  </h6>
+  </h5>
 </div>
 
 <div class="text-right">
@@ -17,7 +14,7 @@
   <% if user_signed_in? %><br>
     <h5>
       <strong>
-        <%= Date.today.strftime("%A, %m-%m-%y") %>
+        <%= Date.today.strftime("%A, %m-%d-%y") %>
       </strong>
     </h5>
     <h4>

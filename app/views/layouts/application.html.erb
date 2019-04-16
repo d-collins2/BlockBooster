@@ -45,18 +45,12 @@
             <a href="<%= user_path(current_user) %>">
               <i class="fa fa-star inverse"></i>
             </a>
-            <!-- <a href="">
-              <i class="fa fa-ticket"></i>
-            </a> -->
             <a href="<%= edit_user_registration_path %>">
               <i class="fa fa-pencil-square-o"></i>
             </a>
             <a href="<%= destroy_user_session_path %>">
               <i class="fa fa-sign-out"></i>
             </a>
-          <% else %>
-            <b><%= link_to "Sign up", new_user_registration_path%></b>
-            <b><%= link_to "Login", new_user_session_path%></b>
           <% end %>
         </p>
       </div>
@@ -64,9 +58,9 @@
   </nav>
   <!--Main content-->
   <% if user_signed_in? %>
-    <main class="container" style="min-height: 500px;">
+    <main class="container" style="min-height: 100%;">
     <% else %>
-      <main class="container2" style="min-height: 500px;">
+      <main class="container2" style="min-height: 100%;">
       <% end %>
       <%= yield %>
     </main>
